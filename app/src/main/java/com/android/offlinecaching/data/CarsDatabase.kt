@@ -16,7 +16,7 @@ fun getDatabase(context: Context): CarsDatabase {
     synchronized(CarsDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
 
-            // 💣 TEMP FIX: Force delete old DB to resolve schema hash mismatch
+            // TEMP FIX: Force delete old DB to resolve schema hash mismatch
             context.deleteDatabase("cars_database")
 
             INSTANCE = Room.databaseBuilder(
